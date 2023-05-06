@@ -8,7 +8,7 @@ gANOVA_mkReTrms = function (bars, fr, drop.unused.levels = TRUE) {
   stopifnot(is.list(bars), vapply(bars, is.language, NA), inherits(fr,
                                                                    "data.frame"))
   names(bars) <- lme4:::barnames(bars)
-  term.names <- vapply(bars, lme4:::safeDeparse, "")
+  term.names <- vapply(bars, bpnreg:::safeDeparse, "")
   blist <- lapply(bars, gANOVA_mkBlist, fr, drop.unused.levels)
 
   nl <- vapply(blist, `[[`, 0L, "nl")
